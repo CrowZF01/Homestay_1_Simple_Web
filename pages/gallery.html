@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery | Lumina Stay Homestay</title>
-  <meta name="description" content="Explore photos of bedrooms, living rooms, kitchen, and gardens at Lumina Stay.">
-  <link rel="stylesheet" href="../css/main.css">
+  <meta name="description" content="Explore photos of bedrooms, living room, kitchen & dining, and outdoor spaces at Lumina Stay.">
+  <link rel="stylesheet" href="../css/gallery.css">
 </head>
 <body>
 
@@ -36,194 +36,162 @@
   <!-- Gallery Header Intro -->
   <section class="gallery-hero">
     <div class="container text-center">
-      <h1 class="gallery-title">Visual Journey</h1>
-      <p class="gallery-subtitle">Immerse yourself in our thoughtfully curated homestay spaces before your arrival.</p>
-      
-      <!-- Filter Category Tabs -->
-      <div class="gallery-filter-bar">
-        <button class="filter-btn active" data-filter="all">All Spaces</button>
-        <button class="filter-btn" data-filter="bedroom">Bedrooms</button>
-        <button class="filter-btn" data-filter="living">Living Room</button>
-        <button class="filter-btn" data-filter="kitchen">Kitchen & Dining</button>
-        <button class="filter-btn" data-filter="bathroom">Bathroom</button>
-        <button class="filter-btn" data-filter="outdoor">Garden & Outdoor</button>
-      </div>
+      <h1 class="gallery-title">Photo Gallery</h1>
+      <p class="gallery-subtitle">Swipe through our curated spaces across 4 categories designed for comfort and slow living.</p>
     </div>
   </section>
 
-  <!-- Gallery Photo Grid -->
-  <section class="gallery-grid-section">
+  <!-- Category Carousels Section (No Orange Tags, Gradient Shadow Intact) -->
+  <section class="category-carousels-section">
     <div class="container">
-      <div class="gallery-grid" id="galleryGrid">
-        
-        <!-- Bedrooms -->
-        <div class="gallery-item" data-category="bedroom">
-          <img src="../assets/home_21.webp" alt="Master Bedroom Space" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Master Bedroom</span>
+      
+      <!-- Category 1: Bedrooms -->
+      <div class="category-block">
+        <div class="category-header">
+          <h2 class="category-title">Bedrooms</h2>
+          <div class="category-nav-btns">
+            <button class="cat-nav-btn prev" data-target="carouselBedrooms">‹</button>
+            <button class="cat-nav-btn next" data-target="carouselBedrooms">›</button>
           </div>
         </div>
 
-        <div class="gallery-item" data-category="bedroom">
-          <img src="../assets/home_8.webp" alt="Cozy Guest Bedroom" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Guest Room</span>
+        <div class="category-carousel-track" id="carouselBedrooms">
+          <div class="square-card" data-caption="Master Bedroom">
+            <img src="../assets/home_21.webp" alt="Master Bedroom Space" draggable="false">
+            <div class="square-card-overlay"></div>
+          </div>
+          <div class="square-card" data-caption="Guest Bedroom">
+            <img src="../assets/home_8.webp" alt="Cozy Guest Bedroom" draggable="false">
+            <div class="square-card-overlay"></div>
+          </div>
+          <div class="square-card" data-caption="Deluxe Room">
+            <img src="../assets/home_1.webp" alt="Spacious Bedroom Suite" draggable="false">
+            <div class="square-card-overlay"></div>
+          </div>
+          <div class="square-card" data-caption="Bedroom Suite">
+            <img src="../assets/home_2.webp" alt="Comfortable Bedding Layout" draggable="false">
+            <div class="square-card-overlay"></div>
+          </div>
+          <div class="square-card" data-caption="Room Details">
+            <img src="../assets/home_3.webp" alt="Bedroom Storage & Vanity" draggable="false">
+            <div class="square-card-overlay"></div>
           </div>
         </div>
-
-        <div class="gallery-item" data-category="bedroom">
-          <img src="../assets/home_1.webp" alt="Spacious Bedroom Suite" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Deluxe Room</span>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="bedroom">
-          <img src="../assets/home_2.webp" alt="Comfortable Bedding Layout" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Bedroom View</span>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="bedroom">
-          <img src="../assets/home_3.webp" alt="Bedroom Storage & Vanity" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Room Details</span>
-          </div>
-        </div>
-
-        <!-- Living Room -->
-        <div class="gallery-item" data-category="living">
-          <img src="../assets/home_26.webp" alt="Main Living Room Lounge" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Main Room</span>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="living">
-          <img src="../assets/home_25.webp" alt="Tactile Linen Sofa Lounge" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Sofa Lounge</span>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="living">
-          <img src="../assets/home_4.webp" alt="Living Room Seating Area" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Family Area</span>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="living">
-          <img src="../assets/home_5.webp" alt="Interior Seating Corner" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Relaxation Corner</span>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="living">
-          <img src="../assets/home_6.webp" alt="Hallway Lounge Space" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Interior Lounge</span>
-          </div>
-        </div>
-
-        <!-- Kitchen & Dining -->
-        <div class="gallery-item" data-category="kitchen">
-          <img src="../assets/home_15.webp" alt="Chef's Kitchen & Dining Table" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Dining & Kitchen</span>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="kitchen">
-          <img src="../assets/home_24.webp" alt="Modern Kitchen Cabinetry" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Kitchen Area</span>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="kitchen">
-          <img src="../assets/home_17.webp" alt="Cooking Amenities & Stove" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Cooking Space</span>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="kitchen">
-          <img src="../assets/home_10.webp" alt="Dining Table Setup" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Dining Area</span>
-          </div>
-        </div>
-
-        <!-- Bathroom -->
-        <div class="gallery-item" data-category="bathroom">
-          <img src="../assets/home_11.webp" alt="Shower & Hot Water Heater" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Shower Room</span>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="bathroom">
-          <img src="../assets/home_13.webp" alt="Bathroom Amenities & Toilet" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Sanctuary Bath</span>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="bathroom">
-          <img src="../assets/home_14.webp" alt="Clean Bathroom Space" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Bathroom Layout</span>
-          </div>
-        </div>
-
-        <!-- Garden & Outdoor -->
-        <div class="gallery-item" data-category="outdoor">
-          <img src="../assets/home_12.webp" alt="Tropical Garden Plants" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Garden Oasis</span>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="outdoor">
-          <img src="../assets/home_9.webp" alt="Front Exterior View" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Front Elevation</span>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="outdoor">
-          <img src="../assets/home_16.webp" alt="Outdoor Patio Seating" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Patio Terrace</span>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="outdoor">
-          <img src="../assets/home_18.webp" alt="Lush Garden Pathways" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Greenery</span>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="outdoor">
-          <img src="../assets/home_22.webp" alt="Terrace Entrance View" draggable="false">
-          <div class="gallery-item-overlay">
-            <span class="gallery-tag">Entrance Patio</span>
-          </div>
-        </div>
-
       </div>
+
+      <!-- Category 2: Living Room -->
+      <div class="category-block">
+        <div class="category-header">
+          <h2 class="category-title">Living Room</h2>
+          <div class="category-nav-btns">
+            <button class="cat-nav-btn prev" data-target="carouselLiving">‹</button>
+            <button class="cat-nav-btn next" data-target="carouselLiving">›</button>
+          </div>
+        </div>
+
+        <div class="category-carousel-track" id="carouselLiving">
+          <div class="square-card" data-caption="Main Room Lounge">
+            <img src="../assets/home_26.webp" alt="Main Living Room Lounge" draggable="false">
+            <div class="square-card-overlay"></div>
+          </div>
+          <div class="square-card" data-caption="Tactile Linen Sofa">
+            <img src="../assets/home_25.webp" alt="Tactile Linen Sofa Lounge" draggable="false">
+            <div class="square-card-overlay"></div>
+          </div>
+          <div class="square-card" data-caption="Family Area">
+            <img src="../assets/home_4.webp" alt="Living Room Seating Area" draggable="false">
+            <div class="square-card-overlay"></div>
+          </div>
+          <div class="square-card" data-caption="Relaxation Corner">
+            <img src="../assets/home_5.webp" alt="Interior Seating Corner" draggable="false">
+            <div class="square-card-overlay"></div>
+          </div>
+          <div class="square-card" data-caption="Interior Lounge">
+            <img src="../assets/home_6.webp" alt="Hallway Lounge Space" draggable="false">
+            <div class="square-card-overlay"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category 3: Kitchen & Dining -->
+      <div class="category-block">
+        <div class="category-header">
+          <h2 class="category-title">Kitchen & Dining</h2>
+          <div class="category-nav-btns">
+            <button class="cat-nav-btn prev" data-target="carouselKitchen">‹</button>
+            <button class="cat-nav-btn next" data-target="carouselKitchen">›</button>
+          </div>
+        </div>
+
+        <div class="category-carousel-track" id="carouselKitchen">
+          <div class="square-card" data-caption="Chef's Kitchen & Dining">
+            <img src="../assets/home_15.webp" alt="Chef's Kitchen & Dining Table" draggable="false">
+            <div class="square-card-overlay"></div>
+          </div>
+          <div class="square-card" data-caption="Modern Cabinetry">
+            <img src="../assets/home_24.webp" alt="Modern Kitchen Cabinetry" draggable="false">
+            <div class="square-card-overlay"></div>
+          </div>
+          <div class="square-card" data-caption="Cooking Space">
+            <img src="../assets/home_17.webp" alt="Cooking Amenities & Stove" draggable="false">
+            <div class="square-card-overlay"></div>
+          </div>
+          <div class="square-card" data-caption="Dining Table Setup">
+            <img src="../assets/home_10.webp" alt="Dining Table Setup" draggable="false">
+            <div class="square-card-overlay"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category 4: Outdoor -->
+      <div class="category-block">
+        <div class="category-header">
+          <h2 class="category-title">Outdoor</h2>
+          <div class="category-nav-btns">
+            <button class="cat-nav-btn prev" data-target="carouselOutdoor">‹</button>
+            <button class="cat-nav-btn next" data-target="carouselOutdoor">›</button>
+          </div>
+        </div>
+
+        <div class="category-carousel-track" id="carouselOutdoor">
+          <div class="square-card" data-caption="Garden Oasis">
+            <img src="../assets/home_12.webp" alt="Tropical Garden Plants" draggable="false">
+            <div class="square-card-overlay"></div>
+          </div>
+          <div class="square-card" data-caption="Front Elevation">
+            <img src="../assets/home_9.webp" alt="Front Exterior View" draggable="false">
+            <div class="square-card-overlay"></div>
+          </div>
+          <div class="square-card" data-caption="Patio Terrace">
+            <img src="../assets/home_16.webp" alt="Outdoor Patio Seating" draggable="false">
+            <div class="square-card-overlay"></div>
+          </div>
+          <div class="square-card" data-caption="Greenery Pathways">
+            <img src="../assets/home_18.webp" alt="Lush Garden Pathways" draggable="false">
+            <div class="square-card-overlay"></div>
+          </div>
+          <div class="square-card" data-caption="Entrance Patio">
+            <img src="../assets/home_22.webp" alt="Terrace Entrance View" draggable="false">
+            <div class="square-card-overlay"></div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Lightbox Modal Viewer -->
+  <!-- Lightbox Modal Viewer with Next/Prev Category Navigation -->
   <div class="lightbox-modal" id="lightboxModal">
     <span class="lightbox-close" id="lightboxClose">&times;</span>
-    <img src="" alt="Full View Image" class="lightbox-image" id="lightboxImage">
-    <div class="lightbox-caption" id="lightboxCaption"></div>
+    
+    <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous category photo">‹</button>
+    
+    <div class="lightbox-content">
+      <img src="" alt="Full View Image" class="lightbox-image" id="lightboxImage">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <button class="lightbox-nav next" id="lightboxNext" aria-label="Next category photo">›</button>
   </div>
 
   <!-- Footer -->
@@ -248,6 +216,6 @@
     💬
   </a>
 
-  <script src="../js/main.js"></script>
+  <script src="../js/gallery.js"></script>
 </body>
 </html>

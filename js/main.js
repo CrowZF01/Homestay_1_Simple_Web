@@ -1,3 +1,7 @@
+/* ==========================================================================
+   JAVASCRIPT FOR INDEX.HTML (HOME PAGE)
+   ========================================================================== */
+
 document.addEventListener('DOMContentLoaded', () => {
   // Mobile Navigation Menu Toggle
   const mobileToggle = document.getElementById('mobileToggle');
@@ -10,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Hero Section 3-Circle Infinite Carousel (Only runs if #heroCarousel exists on the page)
+  // Hero Section 3-Circle Infinite Carousel
   const items = document.querySelectorAll('#heroCarousel .carousel-item');
   const prevBtn = document.getElementById('carouselPrev');
   const nextBtn = document.getElementById('carouselNext');
@@ -72,74 +76,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateCarousel();
     startAutoSlide();
-  }
-
-  // Gallery Filter Tabs
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const galleryItems = document.querySelectorAll('.gallery-item');
-
-  if (filterBtns.length > 0 && galleryItems.length > 0) {
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const filterValue = btn.getAttribute('data-filter');
-
-        galleryItems.forEach(item => {
-          const category = item.getAttribute('data-category');
-          if (filterValue === 'all' || category === filterValue) {
-            item.style.display = 'block';
-            item.style.animation = 'fadeIn 0.4s ease-out forwards';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
-  }
-
-  // Lightbox Modal Viewer
-  const lightboxModal = document.getElementById('lightboxModal');
-  const lightboxImage = document.getElementById('lightboxImage');
-  const lightboxCaption = document.getElementById('lightboxCaption');
-  const lightboxClose = document.getElementById('lightboxClose');
-
-  if (lightboxModal && galleryItems.length > 0) {
-    galleryItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const img = item.querySelector('img');
-        const tag = item.querySelector('.gallery-tag');
-
-        if (img && lightboxImage) {
-          lightboxImage.src = img.src;
-          lightboxImage.alt = img.alt || 'Gallery Photo';
-        }
-
-        if (tag && lightboxCaption) {
-          lightboxCaption.textContent = tag.textContent;
-        }
-
-        lightboxModal.classList.add('open');
-      });
-    });
-
-    if (lightboxClose) {
-      lightboxClose.addEventListener('click', () => {
-        lightboxModal.classList.remove('open');
-      });
-    }
-
-    lightboxModal.addEventListener('click', (e) => {
-      if (e.target === lightboxModal) {
-        lightboxModal.classList.remove('open');
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && lightboxModal.classList.contains('open')) {
-        lightboxModal.classList.remove('open');
-      }
-    });
   }
 });
