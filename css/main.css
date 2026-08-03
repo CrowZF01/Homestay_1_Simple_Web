@@ -326,7 +326,214 @@ button {
   pointer-events: none;
 }
 
-/* 6. Floating WhatsApp Button */
+/* ==========================================
+   6. INTENTIONAL SPACES SECTION (Bento Grid)
+   ========================================== */
+.spaces-section {
+  padding: 6rem 0 8rem 0;
+  background-color: var(--bg-card);
+  position: relative;
+}
+
+.spaces-header {
+  margin-bottom: 3.5rem;
+}
+
+.spaces-title {
+  font-family: var(--font-heading);
+  font-size: 3.25rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.spaces-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 540px;
+}
+
+/* Bento Grid Container */
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+/* Tall Card Left */
+.bento-card-tall {
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  min-height: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-smooth);
+}
+
+.bento-card-tall .bento-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.bento-card-tall:hover .bento-bg {
+  transform: scale(1.05);
+}
+
+.bento-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.75) 100%);
+  z-index: 2;
+}
+
+.bento-content-overlay {
+  position: relative;
+  z-index: 3;
+  color: #FFFFFF;
+}
+
+.bento-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.bento-card-tall .bento-title {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  font-weight: 500;
+  line-height: 1.1;
+  color: #FFFFFF;
+}
+
+/* Right Stacked Column */
+.bento-column-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.bento-row-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* Text Card */
+.bento-card-text {
+  background-color: var(--bg-main);
+  border-radius: 28px;
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 250px;
+  transition: var(--transition-smooth);
+}
+
+.bento-card-text:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(43, 37, 35, 0.06);
+}
+
+.bento-icon {
+  width: 42px;
+  height: 42px;
+  color: var(--accent-terracotta);
+  margin-bottom: 1.5rem;
+}
+
+.bento-card-text .card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.bento-card-text .card-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Image Card Right Top */
+.bento-card-img {
+  border-radius: 28px;
+  overflow: hidden;
+  min-height: 250px;
+  position: relative;
+}
+
+.bento-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card-img:hover img {
+  transform: scale(1.06);
+}
+
+/* Wide Kitchen Card Bottom Right */
+.bento-card-wide {
+  background-color: #EAE3DA;
+  border-radius: 28px;
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 190px;
+  transition: var(--transition-smooth);
+}
+
+.bento-card-wide:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(43, 37, 35, 0.06);
+}
+
+.wide-content .card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.wide-content .card-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.wide-icon {
+  width: 56px;
+  height: 56px;
+  color: var(--text-dark);
+  opacity: 0.8;
+}
+
+/* ==========================================
+   7. FLOATING WHATSAPP BUTTON
+   ========================================== */
 .whatsapp-float {
   position: fixed;
   bottom: 2rem;
@@ -356,7 +563,55 @@ button {
   fill: currentColor;
 }
 
-/* 7. Responsive Media Queries */
+/* ==========================================
+   8. SITE FOOTER
+   ========================================== */
+.site-footer {
+  background-color: #E8E1D7;
+  padding: 3rem 0;
+  border-top: 1px solid rgba(43, 37, 35, 0.06);
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-brand {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.footer-link {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  transition: color var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--accent-terracotta);
+}
+
+.footer-copy {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================
+   9. RESPONSIVE MEDIA QUERIES
+   ========================================== */
 @media (max-width: 1024px) {
   .hero-title {
     font-size: 3.5rem;
@@ -366,13 +621,35 @@ button {
   }
 }
 
+@media (max-width: 900px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .bento-card-tall {
+    min-height: 420px;
+  }
+  .bento-row-top {
+    grid-template-columns: 1fr;
+  }
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+  }
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 0 1.5rem;
   }
 
   .nav-links {
-    display: none; /* Mobile menu toggled via JS */
+    display: none;
   }
 
   .mobile-toggle {
