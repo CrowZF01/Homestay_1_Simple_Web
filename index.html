@@ -5,40 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lumina Stay | Curated Comfort Homestay</title>
   <meta name="description" content="Experience slow travel in spaces designed with architectural intentionality at Lumina Stay.">
-  
-  <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
-  <!-- ==========================================
-       SITE HEADER / NAVIGATION
-       ========================================== -->
+  <!-- Navbar -->
   <header class="site-header">
     <div class="container nav-container">
-      <!-- Brand Logo -->
-      <a href="index.html" class="brand-logo" id="brandLogo">Lumina Stay</a>
+      <a href="index.html" class="brand-logo">Lumina Stay</a>
 
-      <!-- Navigation Links -->
       <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
         <li><a href="pages/gallery.html" class="nav-link">Gallery</a></li>
-        <li><a href="#amenities" class="nav-link">Amenities</a></li>
         <li><a href="pages/about.html" class="nav-link">About</a></li>
       </ul>
 
-      <!-- Action Items -->
       <div class="nav-actions">
-        <!-- Message Icon -->
-        <a href="pages/about.html" class="icon-button" aria-label="Messages" title="Tanyakan ketersediaan">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a2 2 1 0 1-2 2H7l-4 4V5a2 2 1 0 1-2 2h14a2 2 1 0 1 2 2z"></path>
-          </svg>
-        </a>
+        <a href="pages/about.html" class="icon-button" title="Tanyakan ketersediaan">💬</a>
 
-        <!-- Contact Button -->
-        <a href="pages/about.html" class="btn-contact" id="btnHeaderContact">Contact</a>
+        <a href="pages/about.html" class="btn-contact">Contact</a>
 
-        <!-- Mobile Menu Toggle Button -->
         <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
           <span></span>
           <span></span>
@@ -48,13 +34,9 @@
     </div>
   </header>
 
-  <!-- ==========================================
-       HERO SECTION (TOP PART OF HOME)
-       ========================================== -->
-  <section class="hero-section" id="heroSection">
+  <!-- Hero Section -->
+  <section class="hero-section">
     <div class="container hero-grid">
-      
-      <!-- Hero Left Content -->
       <div class="hero-content">
         <h1 class="hero-title">
           Step into
@@ -63,40 +45,30 @@
         <p class="hero-subtitle">
           Experience slow travel in spaces designed with architectural intentionality. Sun-drenched corners and tactile experiences await.
         </p>
-        <a href="pages/gallery.html" class="btn-primary" id="btnHeroGallery">
-          View Gallery
-        </a>
+        <a href="pages/gallery.html" class="btn-primary">View Gallery</a>
       </div>
 
-      <!-- Hero Right Visual Showcase -->
       <div class="hero-visual">
         <div class="hero-glow"></div>
         <div class="hero-image-wrapper">
-          <img src="assets/home_21.jpeg" alt="Lumina Stay Curated Bedroom Space" class="hero-image">
+          <img src="assets/home_21.webp" alt="Lumina Stay Curated Bedroom Space" class="hero-image">
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ==========================================
-       INTENTIONAL SPACES SECTION (BENTO GRID)
-       ========================================== -->
-  <section class="spaces-section" id="amenities">
+  <!-- Spaces Bento Grid -->
+  <section class="spaces-section">
     <div class="container">
-      
-      <!-- Section Header -->
       <div class="spaces-header">
         <h2 class="spaces-title">Intentional Spaces</h2>
         <p class="spaces-subtitle">Every detail is considered to encourage decompression and connection.</p>
       </div>
 
-      <!-- Bento Grid Layout -->
       <div class="bento-grid">
-        
-        <!-- Left Column: Tall Card (Soaking Tubs / Bathroom) -->
+        <!-- Tall Feature Card -->
         <div class="bento-card-tall">
-          <img src="assets/home_11.jpeg" alt="Bathroom & Hot Water Sanctuary" class="bento-bg">
+          <img src="assets/home_11.webp" alt="Bathroom & Hot Water Sanctuary" class="bento-bg">
           <div class="bento-overlay"></div>
           <div class="bento-content-overlay">
             <span class="bento-badge">Sanctuary</span>
@@ -104,56 +76,35 @@
           </div>
         </div>
 
-        <!-- Right Column: Stacked Bento Cards -->
+        <!-- Right Bento Column -->
         <div class="bento-column-right">
-          
-          <!-- Top Row (2 Cards) -->
           <div class="bento-row-top">
-            
-            <!-- Card 1: Tactile Lounging -->
             <div class="bento-card-text">
-              <svg class="bento-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"></path>
-                <path d="M2 11a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5z"></path>
-                <path d="M4 18v2"></path>
-                <path d="M20 18v2"></path>
-              </svg>
+              <span class="bento-emoji">🛋️</span>
               <div>
                 <h4 class="card-title">Tactile Lounging</h4>
                 <p class="card-desc">Linen sofas designed for sinking in.</p>
               </div>
             </div>
 
-            <!-- Card 2: Aesthetic Image Card -->
             <div class="bento-card-img">
-              <img src="assets/home_12.jpeg" alt="Tropical Garden Lounge View" />
+              <img src="assets/home_12.webp" alt="Tropical Garden Lounge View" />
             </div>
-
           </div>
 
-          <!-- Bottom Row: Chef's Kitchen Wide Card -->
           <div class="bento-card-wide">
             <div class="wide-content">
               <h4 class="card-title">Chef's Kitchen</h4>
               <p class="card-desc">Fully equipped with artisanal ceramics.</p>
             </div>
-            <svg class="wide-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2v3M8 2v3M16 2v3"></path>
-              <path d="M5 9h14a1 1 0 0 1 1 1v2a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6v-2a1 1 0 0 1 1-1z"></path>
-              <path d="M19 12h2a2 2 0 0 1 0 4h-2"></path>
-            </svg>
+            <span class="wide-emoji">🍳</span>
           </div>
-
         </div>
-
       </div>
-
     </div>
   </section>
 
-  <!-- ==========================================
-       SITE FOOTER
-       ========================================== -->
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-container">
       <div class="footer-brand">Lumina Stay</div>
@@ -166,21 +117,15 @@
     </div>
   </footer>
 
-  <!-- ==========================================
-       FLOATING WHATSAPP BUTTON
-       ========================================== -->
+  <!-- Floating WhatsApp Button -->
   <a href="https://wa.me/6285119753384?text=Halo%20Lumina%20Stay,%20saya%20ingin%20bertanya%20mengenai%20reservasi" 
      target="_blank" 
      rel="noopener noreferrer" 
      class="whatsapp-float" 
-     id="floatingWhatsappBtn"
      aria-label="Contact via WhatsApp">
-    <svg viewBox="0 0 24 24">
-      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-    </svg>
+    💬
   </a>
 
-  <!-- JavaScript Files -->
   <script src="js/main.js"></script>
 </body>
 </html>
