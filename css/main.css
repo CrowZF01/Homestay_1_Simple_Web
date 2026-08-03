@@ -326,7 +326,7 @@ button {
   box-shadow: 0 10px 24px rgba(196, 78, 32, 0.4);
 }
 
-/* 3-Circle Hero Carousel (Enlarged & Prominent) */
+/* 3-Circle Hero Carousel */
 .hero-visual {
   position: relative;
   display: flex;
@@ -371,7 +371,6 @@ button {
   pointer-events: none;
 }
 
-/* Center Active Circle (Enlarged for maximum visual impact ~293px) */
 .carousel-item.active {
   transform: translateX(0) scale(1.22);
   opacity: 1;
@@ -380,7 +379,6 @@ button {
   border-color: #FFFFFF;
 }
 
-/* Left Circle (Peek & Faded) */
 .carousel-item.prev-item {
   transform: translateX(-145px) scale(0.8);
   opacity: 0.45;
@@ -388,7 +386,6 @@ button {
   filter: blur(0.5px);
 }
 
-/* Right Circle (Peek & Faded) */
 .carousel-item.next-item {
   transform: translateX(145px) scale(0.8);
   opacity: 0.45;
@@ -401,7 +398,6 @@ button {
   filter: blur(0px);
 }
 
-/* Nav Arrows */
 .carousel-nav {
   position: absolute;
   top: 50%;
@@ -441,7 +437,7 @@ button {
   pointer-events: none;
 }
 
-/* Spaces Section */
+/* Spaces Section (Equal Height Bento Grid) */
 .spaces-section {
   padding: 3.5rem 0 4.5rem 0;
   background: linear-gradient(180deg, #EFE0D0 0%, #E9D5C2 100%);
@@ -490,16 +486,34 @@ button {
   background-color: var(--bg-card);
 }
 
+/* Left Tall Card ("MAIN ROOM") height equals right column total height */
 .bento-card-tall {
-  min-height: 420px;
+  height: 100%;
+  min-height: 400px;
+}
+
+.bento-column-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  height: 100%;
+}
+
+.bento-row-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  flex: 1;
 }
 
 .bento-card-small {
-  min-height: 195px;
+  height: 100%;
+  min-height: 185px;
 }
 
 .bento-card-wide {
-  min-height: 160px;
+  flex: 1;
+  min-height: 185px;
 }
 
 .bento-card .bento-bg {
@@ -547,18 +561,6 @@ button {
   text-transform: uppercase;
   box-shadow: 0 4px 12px rgba(196, 78, 32, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-.bento-column-right {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.bento-row-top {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
 }
 
 /* Floating WhatsApp */
@@ -744,7 +746,7 @@ button {
   }
 
   .carousel-item.active {
-    transform: translateX(0) scale(1.2); /* ~216px clear center circle on mobile */
+    transform: translateX(0) scale(1.2);
   }
 
   .carousel-item.prev-item {
