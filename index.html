@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lumina Stay | Curated Comfort Homestay</title>
-  <meta name="description" content="Experience slow travel in spaces designed with architectural intentionality at Lumina Stay.">
+  <meta name="description"
+    content="Experience slow travel in spaces designed with architectural intentionality at Lumina Stay.">
   <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
 
   <!-- Navbar -->
@@ -43,15 +46,31 @@
           <em>Curated Comfort.</em>
         </h1>
         <p class="hero-subtitle">
-          Experience slow travel in spaces designed with architectural intentionality. Sun-drenched corners and tactile experiences await.
+          Experience slow travel in spaces designed with architectural intentionality. Sun-drenched corners and tactile
+          experiences await.
         </p>
         <a href="pages/gallery.html" class="btn-primary">View Gallery</a>
       </div>
 
+      <!-- Hero Carousel Visual Showcase (3 Non-Overlapping Circles) -->
       <div class="hero-visual">
         <div class="hero-glow"></div>
-        <div class="hero-image-wrapper">
-          <img src="assets/home_21.webp" alt="Lumina Stay Curated Bedroom Space" class="hero-image">
+        <div class="hero-carousel-wrapper">
+          <button class="carousel-nav prev" id="carouselPrev" aria-label="Previous image">‹</button>
+
+          <div class="hero-carousel" id="heroCarousel">
+            <div class="carousel-item" data-index="0">
+              <img src="assets/home_21.webp" alt="Master Bedroom Space" draggable="false">
+            </div>
+            <div class="carousel-item" data-index="1">
+              <img src="assets/home_9.webp" alt="Homestay Exterior View" draggable="false">
+            </div>
+            <div class="carousel-item" data-index="2">
+              <img src="assets/home_15.webp" alt="Dining & Kitchen Space" draggable="false">
+            </div>
+          </div>
+
+          <button class="carousel-nav next" id="carouselNext" aria-label="Next image">›</button>
         </div>
       </div>
     </div>
@@ -66,38 +85,44 @@
       </div>
 
       <div class="bento-grid">
-        <!-- Tall Feature Card -->
-        <div class="bento-card-tall">
-          <img src="assets/home_11.webp" alt="Bathroom & Hot Water Sanctuary" class="bento-bg">
+        <!-- Frame 1: Bathroom Sanctuary -->
+        <div class="bento-card bento-card-tall">
+          <img src="assets/home_11.webp" alt="Bathroom & Hot Water Sanctuary" class="bento-bg" draggable="false">
           <div class="bento-overlay"></div>
           <div class="bento-content-overlay">
-            <span class="bento-badge">Sanctuary</span>
-            <h3 class="bento-title">Soaking Tubs</h3>
+            <span class="bento-badge">Bathroom</span>
           </div>
         </div>
 
-        <!-- Right Bento Column -->
+        <!-- Right Column of Picture Frames -->
         <div class="bento-column-right">
           <div class="bento-row-top">
-            <div class="bento-card-text">
-              <span class="bento-emoji">🛋️</span>
-              <div>
-                <h4 class="card-title">Tactile Lounging</h4>
-                <p class="card-desc">Linen sofas designed for sinking in.</p>
+            <!-- Frame 2: Tactile Lounging -->
+            <div class="bento-card bento-card-small">
+              <img src="assets/home_25.webp" alt="Linen Sofa Lounging Area" class="bento-bg" draggable="false">
+              <div class="bento-overlay"></div>
+              <div class="bento-content-overlay">
+                <span class="bento-badge">Sitting Room</span>
               </div>
             </div>
 
-            <div class="bento-card-img">
-              <img src="assets/home_12.webp" alt="Tropical Garden Lounge View" />
+            <!-- Frame 3: Garden Oasis -->
+            <div class="bento-card bento-card-small">
+              <img src="assets/home_12.webp" alt="Tropical Garden Lounge View" class="bento-bg" draggable="false">
+              <div class="bento-overlay"></div>
+              <div class="bento-content-overlay">
+                <span class="bento-badge">Garden</span>
+              </div>
             </div>
           </div>
 
-          <div class="bento-card-wide">
-            <div class="wide-content">
-              <h4 class="card-title">Chef's Kitchen</h4>
-              <p class="card-desc">Fully equipped with artisanal ceramics.</p>
+          <!-- Frame 4: Chef's Kitchen -->
+          <div class="bento-card bento-card-wide">
+            <img src="assets/home_15.webp" alt="Chef's Kitchen and Dining Space" class="bento-bg" draggable="false">
+            <div class="bento-overlay"></div>
+            <div class="bento-content-overlay">
+              <span class="bento-badge">Kitchen</span>
             </div>
-            <span class="wide-emoji">🍳</span>
           </div>
         </div>
       </div>
@@ -118,14 +143,12 @@
   </footer>
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/6285119753384?text=Halo%20Lumina%20Stay,%20saya%20ingin%20bertanya%20mengenai%20reservasi" 
-     target="_blank" 
-     rel="noopener noreferrer" 
-     class="whatsapp-float" 
-     aria-label="Contact via WhatsApp">
+  <a href="https://wa.me/6285119753384?text=Halo%20Lumina%20Stay,%20saya%20ingin%20bertanya%20mengenai%20reservasi"
+    target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contact via WhatsApp">
     💬
   </a>
 
   <script src="js/main.js"></script>
 </body>
+
 </html>
