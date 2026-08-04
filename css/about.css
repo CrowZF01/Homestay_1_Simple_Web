@@ -129,12 +129,13 @@ button {
 
 .brand-logo {
   font-family: var(--font-heading);
-  font-size: 1.75rem;
+  font-size: 1.45rem;
   font-weight: 700;
   color: var(--text-dark);
   letter-spacing: -0.01em;
   transition: transform var(--transition), color var(--transition);
   display: inline-block;
+  white-space: nowrap;
 }
 
 .brand-logo:hover {
@@ -510,9 +511,21 @@ button {
 
 .footer-brand {
   font-family: var(--font-heading);
-  font-size: 1.6rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--text-dark);
+  white-space: nowrap;
+}
+
+.badge-discount {
+  background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+  margin-left: 0.4rem;
+  vertical-align: middle;
 }
 
 .footer-info {
@@ -570,6 +583,10 @@ button {
 }
 
 @media (max-width: 768px) {
+  .brand-logo {
+    font-size: 1.2rem;
+  }
+
   .container {
     padding: 0 1.25rem;
   }
@@ -624,5 +641,15 @@ button {
     width: 48px;
     height: 48px;
     font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-logo {
+    font-size: 1.08rem;
+  }
+
+  .footer-brand {
+    font-size: 1.15rem;
   }
 }

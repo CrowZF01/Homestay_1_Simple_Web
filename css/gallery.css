@@ -131,12 +131,13 @@ button {
 
 .brand-logo {
   font-family: var(--font-heading);
-  font-size: 1.75rem;
+  font-size: 1.45rem;
   font-weight: 700;
   color: var(--text-dark);
   letter-spacing: -0.01em;
   transition: transform var(--transition), color var(--transition);
   display: inline-block;
+  white-space: nowrap;
 }
 
 .brand-logo:hover {
@@ -583,9 +584,10 @@ button {
 
 .footer-brand {
   font-family: var(--font-heading);
-  font-size: 1.6rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--text-dark);
+  white-space: nowrap;
 }
 
 .footer-info {
@@ -631,6 +633,10 @@ button {
 
 /* Mobile & Tablet Responsive */
 @media (max-width: 768px) {
+  .brand-logo {
+    font-size: 1.2rem;
+  }
+
   .container {
     padding: 0 1.25rem;
   }
@@ -718,5 +724,15 @@ button {
     flex-direction: column;
     text-align: center;
     gap: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-logo {
+    font-size: 1.08rem;
+  }
+
+  .footer-brand {
+    font-size: 1.15rem;
   }
 }
