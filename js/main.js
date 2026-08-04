@@ -109,7 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-
   // ========================================================================
   // SUPABASE DYNAMIC REVIEWS
   // ========================================================================
@@ -120,49 +119,28 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchAndRenderReviews();
   }
 
-  // Fallback reviews data (used when Supabase is blocked by ad-blockers like Brave Shield)
-  const FALLBACK_REVIEWS = [
-    {
-      guest_name: 'Andi', guest_subtitle: 'Airbnb Guest', platform: 'airbnb',
-      platform_label: 'Airbnb 5.0 ★', avatar_initial: 'A',
-      review_short: '"Andre was a really great host and very responsive, the place is very near to malioboro street, 5 mins walking distance, the place was easy to find..."',
-      review_full: '"Andre was a really great host and very responsive, the place is very near to malioboro street, 5 mins walking distance, the place was easy to find and the house is really clean and they even provide lots of amenities, 10/10 would go here again!"'
-    },
-    {
-      guest_name: 'Allam', guest_subtitle: 'Indonesia', platform: 'booking',
-      platform_label: 'Booking.com 10/10', avatar_initial: 'A',
-      review_short: '"Good place. The owner prepare everything you expect in the house. Spacious & clean. Additional cost for public parking."',
-      review_full: '"Good place. The owner prepare everything you expect in the house. Spacious & clean. Additional cost for public parking."'
-    },
-    {
-      guest_name: 'Kevin Arif', guest_subtitle: 'Local Guide • 18 reviews', platform: 'google',
-      platform_label: 'Google 5.0 ★', avatar_initial: 'K',
-      review_short: '"I highly recommend staying at this homestay. The owner is communicative, the place is clean, and it is close to the city center..."',
-      review_full: '"I highly recommend staying at this homestay. The owner is communicative, the place is clean, and it is close to the city center yet quiet at night; it is also easily accessible by vehicle. I will definitely stay here again if I return to Jogja."'
-    }
-  ];
-
   async function fetchAndRenderReviews() {
-    let reviews = FALLBACK_REVIEWS;
-
     try {
-      if (typeof supabaseClient !== 'undefined') {
-        const { data, error } = await supabaseClient
-          .from('reviews')
-          .select('*')
-          .order('display_order', { ascending: true });
+      const { data: reviews, error } = await supabaseClient
+        .from('reviews')
+        .select('*')
+        .order('display_order', { ascending: true });
 
-        if (!error && data && data.length > 0) {
-          reviews = data;
-        }
+      if (error) throw error;
+
+      if (!reviews || reviews.length === 0) {
+        trackSingle.innerHTML = '<div class="review-loading">No reviews yet.</div>';
+        return;
       }
-    } catch (err) {
-      console.warn('Supabase unavailable, using fallback reviews:', err.message);
-    }
 
-    renderReviewCards(reviews);
-    initReviewCarousel();
-    initReadMoreToggle();
+      renderReviewCards(reviews);
+      initReviewCarousel();
+      initReadMoreToggle();
+
+    } catch (err) {
+      console.error('Failed to load reviews:', err);
+      trackSingle.innerHTML = '<div class="review-loading">Failed to load reviews.</div>';
+    }
   }
 
   function renderReviewCards(reviews) {
