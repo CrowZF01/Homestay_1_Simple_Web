@@ -2,8 +2,7 @@
    CSS FOR ABOUT.HTML (ABOUT & CONTACT PAGE)
    ========================================================================== */
 
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+/* Fonts loaded via HTML preconnect links for non-blocking 60fps rendering */
 
 :root {
   --bg-main: #F8EFE4;
@@ -14,7 +13,7 @@
   --accent-terracotta: #C44E20;
   --accent-terracotta-hover: #9E3B14;
   --accent-gold: #DA8C2A;
-  
+
   --font-heading: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
 
@@ -27,7 +26,9 @@
 }
 
 /* Reset & Base */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -512,11 +513,13 @@ button {
   .about-grid {
     grid-template-columns: 1fr;
   }
+
   .footer-container {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
   }
+
   .footer-links {
     flex-wrap: wrap;
     justify-content: center;
@@ -546,9 +549,9 @@ button {
     width: 100%;
     background: var(--header-bg);
     padding: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     gap: 1rem;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   .about-title {
