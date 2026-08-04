@@ -779,3 +779,353 @@ button {
     font-size: 1.3rem;
   }
 }
+
+/* ==========================================================================
+   NEW HERO & FEATURES SECTION STYLING
+   ========================================================================== */
+
+/* Hero Badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(196, 78, 32, 0.1);
+  border: 1px solid rgba(196, 78, 32, 0.25);
+  color: var(--accent-terracotta);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1rem;
+  letter-spacing: 0.01em;
+}
+
+/* Hero Chips */
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.chip {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(38, 27, 22, 0.1);
+  color: var(--text-dark);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+/* Hero CTA Group */
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(38, 27, 22, 0.15);
+  color: var(--text-dark);
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-secondary:hover {
+  background: #FFFFFF;
+  color: var(--accent-terracotta);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(38, 27, 22, 0.08);
+}
+
+/* Features Section */
+.features-section {
+  padding: 4rem 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-top: 1px solid rgba(38, 27, 22, 0.06);
+  border-bottom: 1px solid rgba(38, 27, 22, 0.06);
+}
+
+/* Section Header Centering Rules */
+.spaces-header {
+  text-align: center;
+  margin: 0 auto 2.5rem auto;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.spaces-title {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0.35rem 0 0.65rem 0;
+  text-align: center;
+  line-height: 1.15;
+  width: 100%;
+}
+
+.spaces-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 0 auto;
+  max-width: 580px;
+  line-height: 1.5;
+  width: 100%;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-terracotta);
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.feature-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 1.75rem 1.5rem;
+  box-shadow: 0 10px 24px rgba(38, 27, 22, 0.05);
+  border: 1px solid rgba(38, 27, 22, 0.08);
+  transition: var(--transition);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(38, 27, 22, 0.1);
+  border-color: rgba(196, 78, 32, 0.25);
+}
+
+.feature-icon {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.85rem;
+}
+
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.feature-list li strong {
+  color: var(--text-dark);
+}
+
+/* Advantages Banner (Kotak Frame) */
+.advantages-banner {
+  background: linear-gradient(135deg, #261B16 0%, #3D2B24 100%);
+  color: #FFFFFF;
+  border-radius: 0;
+  padding: 2.25rem 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 12px 30px rgba(38, 27, 22, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.adv-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #F8EFE4;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.adv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.adv-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.adv-icon {
+  font-size: 1.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.6rem;
+  border-radius: 0;
+  line-height: 1;
+}
+
+.adv-item h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 0.25rem;
+}
+
+.adv-item p {
+  font-size: 0.88rem;
+  color: rgba(248, 239, 228, 0.8);
+  line-height: 1.45;
+}
+
+/* Booking Notice Card (Kotak Frame) */
+.booking-notice-card {
+  background: #FFFFFF;
+  border-radius: 0;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border: 1px solid rgba(196, 78, 32, 0.3);
+  box-shadow: 0 10px 24px rgba(196, 78, 32, 0.06);
+}
+
+.booking-notice-info {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.time-badge-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-width: 150px;
+}
+
+.time-badge {
+  background: #F8EFE4;
+  padding: 0.5rem 0.85rem;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(38, 27, 22, 0.12);
+}
+
+.time-badge span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.time-badge strong {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent-terracotta);
+}
+
+.booking-text h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.35rem;
+}
+
+.booking-text p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 420px;
+}
+
+.btn-wa-large {
+  background: linear-gradient(135deg, #25D366 0%, #1DA851 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 1rem 1.75rem;
+  border-radius: 0;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.25);
+  transition: var(--transition);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-wa-large:hover {
+  background: linear-gradient(135deg, #2BE671 0%, #25D366 100%);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 26px rgba(37, 211, 102, 0.42);
+}
+
+@media (max-width: 768px) {
+  .hero-chips {
+    justify-content: center;
+  }
+  .hero-cta-group {
+    justify-content: center;
+  }
+  .booking-notice-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .booking-notice-info {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .time-badge-group {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   SCROLL REVEAL FADE-IN ANIMATION (ULTRA LIGHTWEIGHT & SMOOTH)
+   ========================================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+

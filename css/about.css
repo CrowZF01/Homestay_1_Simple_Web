@@ -321,48 +321,100 @@ button {
   margin-bottom: 1.5rem;
 }
 
-/* WhatsApp Contact Box */
-.whatsapp-contact-card {
-  background: linear-gradient(135deg, #25D366 0%, #1DA851 100%);
-  color: #FFFFFF;
-  border-radius: var(--radius-lg);
-  padding: 1.75rem;
+/* Booking Platforms Box (WhatsApp, Booking.com, Airbnb) */
+.booking-platforms-wrapper {
+  margin-top: 0.5rem;
+}
+
+.platforms-title {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-terracotta);
+  margin-bottom: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.platforms-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.platform-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  margin-top: 1rem;
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.wa-info h4 {
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-}
-
-.wa-info p {
-  font-size: 0.88rem;
-  opacity: 0.92;
-}
-
-.btn-wa-direct {
-  background-color: #FFFFFF;
-  color: #1DA851;
-  padding: 0.7rem 1.4rem;
-  border-radius: var(--radius-full);
-  font-size: 0.88rem;
-  font-weight: 700;
-  white-space: nowrap;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-lg);
+  text-decoration: none;
   transition: all var(--transition);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
-.btn-wa-direct:hover {
-  background-color: var(--bg-main);
-  color: #127A38;
-  transform: translateY(-2px);
+.platform-card:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* WhatsApp Card */
+.platform-wa {
+  background: linear-gradient(135deg, #25D366 0%, #1DA851 100%);
+  color: #FFFFFF;
+}
+
+/* Booking.com Card */
+.platform-booking {
+  background: linear-gradient(135deg, #003580 0%, #00224F 100%);
+  color: #FFFFFF;
+}
+
+/* Airbnb Card */
+.platform-airbnb {
+  background: linear-gradient(135deg, #FF5A5F 0%, #D93B40 100%);
+  color: #FFFFFF;
+}
+
+.platform-icon {
+  font-size: 1.25rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  margin-right: 0.75rem;
+}
+
+.platform-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.platform-name {
+  font-weight: 700;
+  font-size: 0.92rem;
+  line-height: 1.2;
+}
+
+.platform-sub {
+  font-size: 0.76rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.platform-arrow {
+  font-size: 1.05rem;
+  font-weight: 700;
+  transition: transform var(--transition);
+}
+
+.platform-card:hover .platform-arrow {
+  transform: translateX(4px);
 }
 
 /* Google Maps Iframe Container */

@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Lightbox Modal Viewer with Category-Scoped Slider
   const lightboxModal = document.getElementById('lightboxModal');
   const lightboxImage = document.getElementById('lightboxImage');
-  const lightboxCaption = document.getElementById('lightboxCaption');
   const lightboxClose = document.getElementById('lightboxClose');
   const lightboxPrev = document.getElementById('lightboxPrev');
   const lightboxNext = document.getElementById('lightboxNext');
@@ -50,16 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const card = categoryCards[currentCardIndex];
     const img = card.querySelector('img');
-    const tag = card.querySelector('.square-card-tag');
-    const caption = card.getAttribute('data-caption');
 
     if (img && lightboxImage) {
       lightboxImage.src = img.src;
       lightboxImage.alt = img.alt || 'Gallery Photo';
-    }
-
-    if (lightboxCaption) {
-      lightboxCaption.textContent = caption || (tag ? tag.textContent : 'Gallery Photo');
     }
   }
 
@@ -146,5 +139,21 @@ document.addEventListener('DOMContentLoaded', () => {
         showLightboxItem(currentCardIndex - 1);
       }
     }, { passive: true });
+  }
+
+  // Scroll Reveal Observer
+  const revealElements = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealElements.length > 0) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealElements.forEach(el => observer.observe(el));
+  } else {
+    revealElements.forEach(el => el.classList.add('revealed'));
   }
 });
