@@ -1295,6 +1295,386 @@ button {
   transition-delay: 0.3s;
 }
 
+
+/* ==========================================================================
+   SPACE DOCUMENTATION & GUEST REVIEWS SIDE-BY-SIDE SECTION
+   ========================================================================== */
+
+.space-reviews-section {
+  padding: 4.5rem 0 5rem 0;
+  background: linear-gradient(180deg, rgba(248, 239, 228, 0.4) 0%, rgba(255, 255, 255, 1) 100%);
+  position: relative;
+}
+
+.space-reviews-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
+  align-items: stretch;
+}
+
+/* Left Column: Interactive Single Photo Frame */
+.space-frame-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.space-single-card {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(38, 27, 22, 0.1);
+  border: 1px solid rgba(196, 78, 32, 0.15);
+  background: #261B16;
+}
+
+.space-single-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.space-single-card:hover .space-single-img {
+  transform: scale(1.03);
+}
+
+.space-single-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.6) 100%);
+  pointer-events: none;
+}
+
+.space-active-badge {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  background: var(--accent-terracotta);
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 14px rgba(196, 78, 32, 0.4);
+  z-index: 2;
+}
+
+/* Room Category Tab Buttons */
+.space-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.space-tab-btn {
+  background: #FFFFFF;
+  border: 1.5px solid rgba(196, 78, 32, 0.2);
+  color: var(--text-dark);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(38, 27, 22, 0.04);
+}
+
+.space-tab-btn:hover {
+  border-color: var(--accent-terracotta);
+  color: var(--accent-terracotta);
+  transform: translateY(-2px);
+}
+
+.space-tab-btn.active {
+  background: var(--accent-terracotta);
+  color: #FFFFFF;
+  border-color: var(--accent-terracotta);
+  box-shadow: 0 4px 14px rgba(196, 78, 32, 0.3);
+}
+
+/* Right Column: Single Review Card Slider */
+.reviews-single-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.reviews-slider-single {
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  height: 300px;
+}
+
+.reviews-track-single {
+  display: flex;
+  height: 100%;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.review-card-single {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 1.5rem 1.75rem 1.25rem 1.75rem;
+  border: 1.5px solid rgba(196, 78, 32, 0.12);
+  box-shadow: 0 12px 32px rgba(38, 27, 22, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.review-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+}
+
+.review-user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.review-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
+
+.avatar-airbnb {
+  background: linear-gradient(135deg, #FF5A5F 0%, #E00007 100%);
+}
+
+.avatar-booking {
+  background: linear-gradient(135deg, #003580 0%, #00224f 100%);
+}
+
+.avatar-google {
+  background: linear-gradient(135deg, #4285F4 0%, #1765e3 100%);
+}
+
+.review-user-name {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.15rem;
+}
+
+.review-user-sub {
+  font-size: 0.8rem;
+  color: rgba(38, 27, 22, 0.55);
+  display: block;
+}
+
+.platform-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.badge-airbnb {
+  background: #FF5A5F;
+  color: #FFFFFF;
+}
+
+.badge-booking {
+  background: #003580;
+  color: #FFFFFF;
+}
+
+.badge-google {
+  background: #1a73e8;
+  color: #FFFFFF;
+}
+
+.review-body {
+  margin: 1rem 0;
+  flex-grow: 1;
+}
+
+.review-text-short,
+.review-text-full {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #3d322c;
+  font-style: italic;
+  margin: 0;
+}
+
+.read-more-btn,
+.read-less-btn {
+  background: none;
+  border: none;
+  color: var(--accent-terracotta);
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  padding: 0 0 0 0.3rem;
+  text-decoration: underline;
+}
+
+.read-more-btn:hover,
+.read-less-btn:hover {
+  color: #b54117;
+}
+
+/* Loading Skeleton for Reviews */
+.review-loading {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  border: 1.5px solid rgba(196, 78, 32, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  box-sizing: border-box;
+  color: rgba(38, 27, 22, 0.4);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.review-loading-shimmer {
+  height: 18px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #f0e8e0 25%, #f8f0e8 50%, #f0e8e0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.review-loading-shimmer.short {
+  width: 70%;
+}
+
+.review-loading-shimmer.shorter {
+  width: 45%;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Footer Controls Inside Review Card */
+.review-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(196, 78, 32, 0.08);
+}
+
+.review-ctrl-arrows {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.review-ctrl-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(196, 78, 32, 0.2);
+  color: var(--text-dark);
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(38, 27, 22, 0.06);
+}
+
+.review-ctrl-btn:hover {
+  background: var(--accent-terracotta);
+  color: #FFFFFF;
+  border-color: var(--accent-terracotta);
+}
+
+.review-single-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.review-ctrl-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(196, 78, 32, 0.2);
+  color: var(--text-dark);
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(38, 27, 22, 0.06);
+}
+
+.review-ctrl-btn:hover {
+  background: var(--accent-terracotta);
+  color: #FFFFFF;
+  border-color: var(--accent-terracotta);
+}
+
+.review-single-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 900px) {
+  .space-reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .space-single-card,
+  .reviews-slider-single {
+    height: 340px;
+  }
+}
+
 .delay-4 {
   transition-delay: 0.4s;
 }

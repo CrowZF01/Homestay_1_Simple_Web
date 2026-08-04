@@ -229,56 +229,49 @@
     </div>
   </section>
 
-  <!-- Spaces Bento Grid -->
-  <section class="spaces-section">
+  <!-- Space Documentation & Guest Reviews Side-by-Side Section -->
+  <section class="space-reviews-section" id="gallery-reviews">
     <div class="container">
       <div class="spaces-header text-center reveal">
-        <span class="section-tag">Room Gallery</span>
-        <h2 class="spaces-title">Space Documentation</h2>
-        <p class="spaces-subtitle">Every corner of the homestay is thoughtfully arranged for your comfort</p>
+        <span class="section-tag">Room Gallery & Guest Experiences</span>
+        <h2 class="spaces-title">Explore & Guest Reviews</h2>
+        <p class="spaces-subtitle">Discover our homestay spaces and read authentic guest experiences</p>
       </div>
 
-      <div class="bento-grid reveal">
-        <!-- Frame 1: Bathroom Sanctuary -->
-        <div class="bento-card bento-card-tall">
-          <img src="assets/home_26.webp" alt="Bathroom & Hot Water Sanctuary" class="bento-bg" draggable="false">
-          <div class="bento-overlay"></div>
-          <div class="bento-content-overlay">
-            <span class="bento-badge">Main Room</span>
+      <div class="space-reviews-grid reveal">
+
+        <!-- Left Column: Single Interactive Photo Frame -->
+        <div class="space-frame-wrapper">
+          <div class="space-single-card">
+            <img src="assets/home_26.webp" alt="Main Living Room" id="spaceMainImage" class="space-single-img" draggable="false">
+            <div class="space-single-overlay"></div>
+            <span class="space-active-badge" id="spaceActiveBadge">MAIN ROOM</span>
+          </div>
+
+          <!-- Room Category Selector Buttons -->
+          <div class="space-tabs" id="spaceTabs">
+            <button class="space-tab-btn active" data-img="assets/home_26.webp" data-label="MAIN ROOM">MAIN ROOM</button>
+            <button class="space-tab-btn" data-img="assets/home_8.webp" data-label="BEDROOM">BEDROOM</button>
+            <button class="space-tab-btn" data-img="assets/home_12.webp" data-label="GARDEN">GARDEN</button>
+            <button class="space-tab-btn" data-img="assets/home_15.webp" data-label="KITCHEN">KITCHEN</button>
           </div>
         </div>
 
-        <!-- Right Column of Picture Frames -->
-        <div class="bento-column-right">
-          <div class="bento-row-top">
-            <!-- Frame 2: Tactile Lounging -->
-            <div class="bento-card bento-card-small">
-              <img src="assets/home_8.webp" alt="Linen Sofa Lounging Area" class="bento-bg" draggable="false">
-              <div class="bento-overlay"></div>
-              <div class="bento-content-overlay">
-                <span class="bento-badge">Bedroom</span>
-              </div>
-            </div>
-
-            <!-- Frame 3: Garden Oasis -->
-            <div class="bento-card bento-card-small">
-              <img src="assets/home_12.webp" alt="Tropical Garden Lounge View" class="bento-bg" draggable="false">
-              <div class="bento-overlay"></div>
-              <div class="bento-content-overlay">
-                <span class="bento-badge">Garden</span>
+        <!-- Right Column: Single Review Card Carousel -->
+        <div class="reviews-single-wrapper">
+          <div class="reviews-slider-single" id="reviewsSliderSingle">
+            <div class="reviews-track-single" id="reviewsTrackSingle">
+              <!-- Reviews loaded dynamically from Supabase -->
+              <div class="review-loading" id="reviewLoading">
+                <div class="review-loading-shimmer"></div>
+                <div class="review-loading-shimmer short"></div>
+                <div class="review-loading-shimmer shorter"></div>
               </div>
             </div>
           </div>
 
-          <!-- Frame 4: Chef's Kitchen -->
-          <div class="bento-card bento-card-wide">
-            <img src="assets/home_15.webp" alt="Chef's Kitchen and Dining Space" class="bento-bg" draggable="false">
-            <div class="bento-overlay"></div>
-            <div class="bento-content-overlay">
-              <span class="bento-badge">Kitchen</span>
-            </div>
-          </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -313,6 +306,9 @@
     </svg>
   </a>
 
+  <!-- Supabase JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="connection/supabase.js"></script>
   <script src="js/main.js"></script>
 </body>
 

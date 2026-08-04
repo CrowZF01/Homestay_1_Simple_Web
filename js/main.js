@@ -86,6 +86,216 @@ document.addEventListener('DOMContentLoaded', () => {
     startAutoSlide();
   }
 
+  // Space Documentation Single Photo Switcher
+  const spaceMainImage = document.getElementById('spaceMainImage');
+  const spaceActiveBadge = document.getElementById('spaceActiveBadge');
+  const spaceTabBtns = document.querySelectorAll('.space-tab-btn');
+
+  if (spaceMainImage && spaceTabBtns.length > 0) {
+    spaceTabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        spaceTabBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const newSrc = btn.getAttribute('data-img');
+        const newLabel = btn.getAttribute('data-label');
+
+        spaceMainImage.style.opacity = '0.3';
+        setTimeout(() => {
+          spaceMainImage.src = newSrc;
+          if (spaceActiveBadge) spaceActiveBadge.textContent = newLabel;
+          spaceMainImage.style.opacity = '1';
+        }, 150);
+      });
+    });
+  }
+  // ========================================================================
+  // SUPABASE DYNAMIC REVIEWS
+  // ========================================================================
+
+  const trackSingle = document.getElementById('reviewsTrackSingle');
+
+  if (trackSingle) {
+    fetchAndRenderReviews();
+  }
+
+  async function fetchAndRenderReviews() {
+    try {
+      const { data: reviews, error } = await supabaseClient
+        .from('reviews')
+        .select('*')
+        .order('display_order', { ascending: true });
+
+      if (error) throw error;
+
+      if (!reviews || reviews.length === 0) {
+        trackSingle.innerHTML = '<div class="review-loading">No reviews yet.</div>';
+        return;
+      }
+
+      renderReviewCards(reviews);
+      initReviewCarousel();
+      initReadMoreToggle();
+
+    } catch (err) {
+      console.error('Failed to load reviews:', err);
+      trackSingle.innerHTML = '<div class="review-loading">Failed to load reviews.</div>';
+    }
+  }
+
+  function renderReviewCards(reviews) {
+    const totalReviews = reviews.length;
+
+    const cardsHTML = reviews.map((review, index) => {
+      const needsReadMore = review.review_short !== review.review_full;
+
+      return `
+        <div class="review-card-single">
+          <div class="review-card-header">
+            <div class="review-user-info">
+              <div class="review-avatar avatar-${review.platform}">${review.avatar_initial}</div>
+              <div class="review-user-details">
+                <h4 class="review-user-name">${review.guest_name}</h4>
+                <span class="review-user-sub">${review.guest_subtitle}</span>
+              </div>
+            </div>
+            <span class="platform-badge badge-${review.platform}">
+              ${review.platform_label}
+            </span>
+          </div>
+
+          <div class="review-body">
+            <p class="review-text-short">
+              ${review.review_short}
+              ${needsReadMore ? '<button class="read-more-btn">Read more</button>' : ''}
+            </p>
+            <p class="review-text-full hidden">
+              ${review.review_full}
+              ${needsReadMore ? '<button class="read-less-btn">Read less</button>' : ''}
+            </p>
+          </div>
+
+          <div class="review-card-footer">
+            <div class="review-single-dots"></div>
+            <div class="review-ctrl-arrows">
+              <button class="review-ctrl-btn prev reviewSinglePrev" aria-label="Previous review">‹</button>
+              <button class="review-ctrl-btn next reviewSingleNext" aria-label="Next review">›</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    trackSingle.innerHTML = cardsHTML;
+  }
+
+  function initReviewCarousel() {
+    const cardsSingle = document.querySelectorAll('.review-card-single');
+    if (cardsSingle.length === 0) return;
+
+    let currentSingleIndex = 0;
+
+    function createSingleDots() {
+      cardsSingle.forEach(card => {
+        const dotsContainer = card.querySelector('.review-single-dots');
+        if (!dotsContainer) return;
+        dotsContainer.innerHTML = '';
+        cardsSingle.forEach((_, idx) => {
+          const dot = document.createElement('div');
+          dot.classList.add('review-dot');
+          if (idx === currentSingleIndex) dot.classList.add('active');
+          dot.addEventListener('click', () => {
+            currentSingleIndex = idx;
+            updateSlider();
+          });
+          dotsContainer.appendChild(dot);
+        });
+      });
+    }
+
+    function updateSlider() {
+      if (currentSingleIndex >= cardsSingle.length) currentSingleIndex = 0;
+      if (currentSingleIndex < 0) currentSingleIndex = cardsSingle.length - 1;
+
+      trackSingle.style.transform = `translateX(-${currentSingleIndex * 100}%)`;
+
+      cardsSingle.forEach(card => {
+        const dotsContainer = card.querySelector('.review-single-dots');
+        if (dotsContainer) {
+          const dots = dotsContainer.querySelectorAll('.review-dot');
+          dots.forEach((dot, idx) => {
+            dot.classList.toggle('active', idx === currentSingleIndex);
+          });
+        }
+      });
+    }
+
+    document.querySelectorAll('.reviewSingleNext').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentSingleIndex = (currentSingleIndex + 1) % cardsSingle.length;
+        updateSlider();
+      });
+    });
+
+    document.querySelectorAll('.reviewSinglePrev').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentSingleIndex = (currentSingleIndex - 1 + cardsSingle.length) % cardsSingle.length;
+        updateSlider();
+      });
+    });
+
+    // Touch Swipe Support
+    let startX = 0;
+    let isDragging = false;
+
+    trackSingle.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    }, { passive: true });
+
+    trackSingle.addEventListener('touchend', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      const endX = e.changedTouches[0].clientX;
+      const diffX = startX - endX;
+
+      if (Math.abs(diffX) > 35) {
+        if (diffX > 0) {
+          currentSingleIndex = (currentSingleIndex + 1) % cardsSingle.length;
+        } else {
+          currentSingleIndex = (currentSingleIndex - 1 + cardsSingle.length) % cardsSingle.length;
+        }
+        updateSlider();
+      }
+    }, { passive: true });
+
+    createSingleDots();
+    updateSlider();
+  }
+
+  function initReadMoreToggle() {
+    document.querySelectorAll('.review-body').forEach(body => {
+      const readMoreBtn = body.querySelector('.read-more-btn');
+      const readLessBtn = body.querySelector('.read-less-btn');
+      const shortText = body.querySelector('.review-text-short');
+      const fullText = body.querySelector('.review-text-full');
+
+      if (readMoreBtn && shortText && fullText) {
+        readMoreBtn.addEventListener('click', () => {
+          shortText.classList.add('hidden');
+          fullText.classList.remove('hidden');
+        });
+      }
+
+      if (readLessBtn && shortText && fullText) {
+        readLessBtn.addEventListener('click', () => {
+          fullText.classList.add('hidden');
+          shortText.classList.remove('hidden');
+        });
+      }
+    });
+  }
+
   // Scroll Reveal Fade-In Observer (Lightweight & 60fps Native Performance)
   const revealElements = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && revealElements.length > 0) {
