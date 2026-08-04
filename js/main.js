@@ -1,3 +1,5 @@
+import { supabaseClient } from '../connection/supabase.js';
+
 /* ==========================================================================
    JAVASCRIPT FOR INDEX.HTML (HOME PAGE)
    ========================================================================== */
@@ -119,28 +121,106 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchAndRenderReviews();
   }
 
-  async function fetchAndRenderReviews() {
-    try {
-      const { data: reviews, error } = await supabaseClient
-        .from('reviews')
-        .select('*')
-        .order('display_order', { ascending: true });
-
-      if (error) throw error;
-
-      if (!reviews || reviews.length === 0) {
-        trackSingle.innerHTML = '<div class="review-loading">No reviews yet.</div>';
-        return;
-      }
-
-      renderReviewCards(reviews);
-      initReviewCarousel();
-      initReadMoreToggle();
-
-    } catch (err) {
-      console.error('Failed to load reviews:', err);
-      trackSingle.innerHTML = '<div class="review-loading">Failed to load reviews.</div>';
+  // Fallback dataset for when Supabase is blocked by browser shields (e.g. Brave Shields / Adblockers)
+  const FALLBACK_REVIEWS = [
+    {
+      id: 10,
+      guest_name: 'Mamatama Arum',
+      guest_subtitle: 'Local Guide • 14 reviews',
+      platform: 'google',
+      platform_label: 'Google 5.0 ★',
+      avatar_initial: 'M',
+      review_short: 'Stayed here for 2 days, the place is spacious, clean, comfortable, strategically located near Malioboro Street and Beringharjo Market',
+      review_full: 'Stayed here for 2 days, the place is spacious, clean, comfortable, strategically located near Malioboro Street and Beringharjo Market, just a short walk to get there.'
+    },
+    {
+      id: 4,
+      guest_name: 'Felix',
+      guest_subtitle: '4 reviews • 2 photos',
+      platform: 'google',
+      platform_label: 'Google 5.0 ★',
+      avatar_initial: 'F',
+      review_short: "This place is very affordable and also very cozy. The homestay itself is near Malioboro which is very nice, because it doesn't take long to reach Malioboro.",
+      review_full: "This place is very affordable and also very cozy. The homestay itself is near Malioboro which is very nice, because it doesn't take long to reach Malioboro. Also the homestay is clean and comfortable with the AC and some snacks provided by the owner."
+    },
+    {
+      id: 2,
+      guest_name: 'Allam',
+      guest_subtitle: 'Indonesia',
+      platform: 'booking',
+      platform_label: 'Booking.com 10/10',
+      avatar_initial: 'A',
+      review_short: 'Good place. The owner prepare everything you expect in the house. Spacious & clean. Additional cost for public parking.',
+      review_full: 'Good place. The owner prepare everything you expect in the house. Spacious & clean. Additional cost for public parking.'
+    },
+    {
+      id: 11,
+      guest_name: "Robi'ah Al-Adawiyah",
+      guest_subtitle: 'Local Guide • 205 reviews',
+      platform: 'google',
+      platform_label: 'Google 5.0 ★',
+      avatar_initial: 'R',
+      review_short: "After visiting Yogyakarta many times, I've tried several hotels. I tried renting a villa near Malioboro because I was bringing my parents. Thankfully, I got a beautiful, clean, and fragrant villa...",
+      review_full: "After visiting Yogyakarta many times, I've tried several hotels. I tried renting a villa near Malioboro because I was bringing my parents. Thankfully, I got a beautiful, clean, and fragrant villa. It's fully equipped with Netflix, and the villa is very comfortable. More importantly, the property management is kind and communicative."
+    },
+    {
+      id: 12,
+      guest_name: 'Hani',
+      guest_subtitle: 'Airbnb Guest',
+      platform: 'airbnb',
+      platform_label: 'Airbnb 5.0 ★',
+      avatar_initial: 'H',
+      review_short: "The place is very strategic, very close to Malioboro and Bringharjo Market. It's very easy to find, and the host is kind and very responsive...",
+      review_full: "The place is very strategic, very close to Malioboro and Bringharjo Market. It's very easy to find, and the host is kind and very responsive. Hopefully there will be another opportunity to visit there. Thank you - Hani"
+    },
+    {
+      id: 13,
+      guest_name: 'Dinda',
+      guest_subtitle: 'Airbnb Guest',
+      platform: 'airbnb',
+      platform_label: 'Airbnb 5.0 ★',
+      avatar_initial: 'D',
+      review_short: 'Super recommended, the owner is very friendly thanks Ko Andre, the house is clean, smells good, the facilities are okay. Just a 3-minute walk to Malioboro...',
+      review_full: 'Super recommended, the owner is very friendly thanks Ko Andre, the house is clean, smells good, the facilities are okay. Just a 3-minute walk to Malioboro really worth it staying here with 7 friends, everyone said it was comfortable and will come back to stay here if they go to Jogja'
+    },
+    {
+      id: 14,
+      guest_name: 'Hilda',
+      guest_subtitle: 'Indonesia',
+      platform: 'booking',
+      platform_label: 'Booking.com 10/10',
+      avatar_initial: 'H',
+      review_short: 'Thank you for the comfortable facilities; everything was fully equipped, and the location was strategic.',
+      review_full: "Thank you for the comfortable facilities; everything was fully equipped, and the location was strategic. It's a great recommendation for a place to stay near Malioboro."
     }
+  ];
+
+  async function fetchAndRenderReviews() {
+    let reviews = null;
+
+    if (typeof supabaseClient !== 'undefined' && supabaseClient) {
+      try {
+        const { data, error } = await supabaseClient
+          .from('reviews')
+          .select('*')
+          .order('display_order', { ascending: true });
+
+        if (!error && data && data.length > 0) {
+          reviews = data;
+        }
+      } catch (err) {
+        console.warn('Supabase fetch failed or blocked, using fallback reviews dataset:', err);
+      }
+    }
+
+    // Fallback to local reviews dataset if Supabase is blocked or unavailable
+    if (!reviews || reviews.length === 0) {
+      reviews = FALLBACK_REVIEWS;
+    }
+
+    renderReviewCards(reviews);
+    initReviewCarousel();
+    initReadMoreToggle();
   }
 
   function renderReviewCards(reviews) {
