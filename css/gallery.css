@@ -2,8 +2,7 @@
    CSS FOR GALLERY.HTML (4-CATEGORY SHARP SQUARE CAROUSELS & LIGHTBOX SLIDER)
    ========================================================================== */
 
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+/* Fonts loaded via HTML preconnect links for non-blocking 60fps rendering */
 
 :root {
   --bg-main: #F8EFE4;
@@ -14,7 +13,7 @@
   --accent-terracotta: #C44E20;
   --accent-terracotta-hover: #9E3B14;
   --accent-gold: #DA8C2A;
-  
+
   --font-heading: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
 
@@ -27,7 +26,9 @@
 }
 
 /* Reset & Base */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -337,8 +338,13 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.cat-nav-btn.prev { padding-right: 2px; }
-.cat-nav-btn.next { padding-left: 2px; }
+.cat-nav-btn.prev {
+  padding-right: 2px;
+}
+
+.cat-nav-btn.next {
+  padding-left: 2px;
+}
 
 .cat-nav-btn:hover {
   background: var(--accent-terracotta-hover);
@@ -421,8 +427,13 @@ button {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .lightbox-close {
@@ -482,8 +493,15 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.lightbox-nav.prev { left: 1.75rem; padding-right: 2px; }
-.lightbox-nav.next { right: 1.75rem; padding-left: 2px; }
+.lightbox-nav.prev {
+  left: 1.75rem;
+  padding-right: 2px;
+}
+
+.lightbox-nav.next {
+  right: 1.75rem;
+  padding-left: 2px;
+}
 
 .lightbox-nav:hover {
   background: var(--accent-terracotta-hover);
@@ -586,9 +604,9 @@ button {
     width: 100%;
     background: var(--header-bg);
     padding: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     gap: 1rem;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   .gallery-title {
@@ -617,8 +635,15 @@ button {
     font-size: 1.4rem;
   }
 
-  .lightbox-nav.prev { left: 0.5rem; padding-right: 2px; }
-  .lightbox-nav.next { right: 0.5rem; padding-left: 2px; }
+  .lightbox-nav.prev {
+    left: 0.5rem;
+    padding-right: 2px;
+  }
+
+  .lightbox-nav.next {
+    right: 0.5rem;
+    padding-left: 2px;
+  }
 
   .whatsapp-float {
     bottom: 1.25rem;
