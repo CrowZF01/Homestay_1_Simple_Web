@@ -255,20 +255,41 @@ button {
 
 .mobile-toggle {
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 3px;
   width: 22px;
-  height: 16px;
+  height: 22px;
   cursor: pointer;
   z-index: 1001;
+  background: transparent;
+  border: none;
+  padding: 0;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.mobile-toggle span {
-  width: 100%;
-  height: 2px;
-  background-color: var(--text-dark);
-  border-radius: 2px;
-  transition: var(--transition);
+.mobile-toggle .grid-square {
+  width: 9.5px;
+  height: 9.5px;
+  border: 1.8px solid var(--text-dark);
+  border-radius: 3px;
+  background-color: transparent;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-toggle:hover .grid-square {
+  border-color: var(--accent-terracotta);
+}
+
+/* Active State (When clicked / open menu) */
+.mobile-toggle.active {
+  transform: rotate(90deg);
+}
+
+.mobile-toggle.active .grid-square {
+  background-color: var(--accent-terracotta);
+  border-color: var(--accent-terracotta);
+  box-shadow: 0 2px 8px rgba(196, 78, 32, 0.4);
 }
 
 /* Hero Section */
@@ -722,15 +743,11 @@ button {
     padding: 0 1.25rem;
   }
 
-  .nav-links {
-    display: none;
-  }
-
   .mobile-toggle {
-    display: flex;
+    display: grid;
   }
 
-  .nav-links.mobile-open {
+  .nav-links {
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -738,10 +755,25 @@ button {
     left: 0;
     width: 100%;
     background: var(--header-bg);
-    padding: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    gap: 1rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1.5rem 1.5rem 1.75rem 1.5rem;
+    box-shadow: 0 12px 28px rgba(38, 27, 22, 0.15);
+    gap: 0.85rem;
+    border-bottom: 1px solid rgba(196, 78, 32, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(0, -10px, 0);
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  .nav-links.mobile-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translate3d(0, 0, 0);
+    pointer-events: auto;
   }
 
   .hero-section {
