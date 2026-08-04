@@ -904,12 +904,24 @@ button {
     flex-direction: row;
     justify-content: center;
     width: 100%;
+    gap: 0.6rem;
+  }
+
+  .time-badge {
+    flex: 1;
+    text-align: center;
+    max-width: 150px;
+    align-items: center;
   }
 
   .booking-notice-platforms {
     width: 100%;
     max-width: 320px;
     margin: 0 auto;
+  }
+
+  .space-tabs {
+    justify-content: center;
   }
 }
 
@@ -1711,5 +1723,75 @@ button {
 
   .footer-brand {
     font-size: 1.15rem;
+  }
+
+  .hero-title {
+    font-size: 2.25rem;
+  }
+
+  .hero-carousel-wrapper {
+    max-width: 290px;
+  }
+
+  .hero-carousel {
+    height: 230px;
+  }
+
+  .carousel-item {
+    width: 145px;
+    height: 145px;
+  }
+
+  .carousel-item.prev-item {
+    transform: translate(calc(-50% - 75px), -50%) scale(0.75);
+  }
+
+  .carousel-item.next-item {
+    transform: translate(calc(-50% + 75px), -50%) scale(0.75);
+  }
+
+  .carousel-nav.prev {
+    left: -4px;
+  }
+
+  .carousel-nav.next {
+    right: -4px;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .hero-cta-group .btn-primary,
+  .hero-cta-group .btn-secondary {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .advantages-banner {
+    padding: 1.5rem 1.15rem;
+  }
+
+  .booking-notice-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .feature-card {
+    padding: 1.35rem 1.15rem;
+  }
+
+  .space-single-card {
+    height: 260px;
+  }
+
+  .reviews-slider-single {
+    height: 330px;
+  }
+
+  .review-card-single {
+    padding: 1.25rem 1rem;
   }
 }

@@ -630,6 +630,14 @@ button {
     letter-spacing: -0.02em;
   }
 
+  .about-card {
+    padding: 1.75rem 1.35rem;
+  }
+
+  .map-card iframe {
+    height: 280px;
+  }
+
   .whatsapp-contact-card {
     flex-direction: column;
     text-align: center;
@@ -651,5 +659,29 @@ button {
 
   .footer-brand {
     font-size: 1.15rem;
+  }
+
+  .about-title {
+    font-size: 2.25rem;
+  }
+
+  .about-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .about-card {
+    padding: 1.5rem 1.1rem;
+  }
+
+  .map-card iframe {
+    height: 240px;
+  }
+
+  .platforms-title {
+    text-align: center;
+  }
+
+  .platform-card {
+    padding: 0.7rem 0.9rem;
   }
 }

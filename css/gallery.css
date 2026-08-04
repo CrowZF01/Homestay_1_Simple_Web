@@ -735,4 +735,32 @@ button {
   .footer-brand {
     font-size: 1.15rem;
   }
+
+  .gallery-title {
+    font-size: 2.25rem;
+  }
+
+  .gallery-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .category-title {
+    font-size: 1.5rem;
+  }
+
+  .square-card {
+    flex: 0 0 170px;
+  }
+
+  .lightbox-nav {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+
+  .lightbox-close {
+    font-size: 2.2rem;
+    top: 0.75rem;
+    right: 1rem;
+  }
 }
