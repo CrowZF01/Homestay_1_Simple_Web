@@ -583,31 +583,50 @@ button {
 
 .footer-brand {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--text-dark);
 }
 
-.footer-links {
+.footer-info {
   display: flex;
-  gap: 1.5rem;
-  list-style: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  text-align: center;
 }
 
-.footer-link {
-  font-size: 0.85rem;
+.footer-info-item {
+  font-size: 0.88rem;
+  color: rgba(38, 27, 22, 0.85);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.footer-wa-link {
+  color: var(--text-dark);
   font-weight: 600;
-  color: #4A3A31;
   transition: color var(--transition);
 }
 
-.footer-link:hover {
+.footer-wa-link:hover {
   color: var(--accent-terracotta);
+  text-decoration: underline;
+}
+
+.info-divider {
+  color: var(--accent-terracotta);
+  opacity: 0.5;
 }
 
 .footer-copy {
-  font-size: 0.85rem;
-  color: rgba(38, 27, 22, 0.7);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-dark);
 }
 
 /* Mobile & Tablet Responsive */
@@ -698,12 +717,6 @@ button {
   .footer-container {
     flex-direction: column;
     text-align: center;
-    gap: 1rem;
-  }
-
-  .footer-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
+    gap: 1.25rem;
   }
 }
