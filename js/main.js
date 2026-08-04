@@ -115,12 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // SUPABASE DYNAMIC REVIEWS
   // ========================================================================
 
-  const trackSingle = document.getElementById('reviewsTrackSingle');
-
-  if (trackSingle) {
-    fetchAndRenderReviews();
-  }
-
   // Fallback dataset for when Supabase is blocked by browser shields (e.g. Brave Shields / Adblockers)
   const FALLBACK_REVIEWS = [
     {
@@ -194,6 +188,13 @@ document.addEventListener('DOMContentLoaded', () => {
       review_full: "Thank you for the comfortable facilities; everything was fully equipped, and the location was strategic. It's a great recommendation for a place to stay near Malioboro."
     }
   ];
+
+  const trackSingle = document.getElementById('reviewsTrackSingle');
+
+  if (trackSingle) {
+    fetchAndRenderReviews();
+  }
+
 
   async function fetchAndRenderReviews() {
     let reviews = null;
