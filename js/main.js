@@ -113,12 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // SUPABASE DYNAMIC REVIEWS
   // ========================================================================
 
-  const trackSingle = document.getElementById('reviewsTrackSingle');
-
-  if (trackSingle) {
-    fetchAndRenderReviews();
-  }
-
   // Fallback dataset for when Supabase is blocked by browser shields (e.g. Brave Shields / Adblockers)
   const FALLBACK_REVIEWS = [
     {
@@ -219,6 +213,12 @@ document.addEventListener('DOMContentLoaded', () => {
     renderReviewCards(reviews);
     initReviewCarousel();
     initReadMoreToggle();
+  }
+
+  const trackSingle = document.getElementById('reviewsTrackSingle');
+
+  if (trackSingle) {
+    fetchAndRenderReviews();
   }
 
   function renderReviewCards(reviews) {
