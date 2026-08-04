@@ -341,7 +341,7 @@ button {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent-terracotta) 0%, #9E3B14 100%);
+  background: linear-gradient(135deg, var(--accent-terracotta) 0%, #cc8a70 100%);
   color: #FFFFFF;
   padding: 0.8rem 2rem;
   border-radius: var(--radius-full);
@@ -360,6 +360,31 @@ button {
   background: linear-gradient(135deg, #D65A29 0%, var(--accent-terracotta) 100%);
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 10px 24px rgba(196, 78, 32, 0.4);
+}
+
+.btn-secondary {
+  background: #ee4e04;
+  color: #FFFFFF;
+  border: 1.5px solid #ee4e04;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: all var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 16px rgba(238, 78, 4, 0.3);
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: #c94102;
+  border-color: #c94102;
+  color: #FFFFFF;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 22px rgba(238, 78, 4, 0.45);
 }
 
 /* 3-Circle Hero Carousel (100% Perfectly Centered Y-Axis Midline) */
@@ -856,6 +881,30 @@ button {
     height: 48px;
     font-size: 1.3rem;
   }
+
+  .hero-chips {
+    justify-content: center;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .booking-notice-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .booking-notice-info {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .time-badge-group {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 /* ==========================================================================
@@ -922,27 +971,6 @@ button {
   align-items: center;
   gap: 0.85rem;
   flex-wrap: wrap;
-}
-
-.btn-secondary {
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(38, 27, 22, 0.15);
-  color: var(--text-dark);
-  padding: 0.8rem 1.6rem;
-  border-radius: var(--radius-full);
-  font-size: 0.9rem;
-  font-weight: 700;
-  transition: var(--transition);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.btn-secondary:hover {
-  background: #FFFFFF;
-  color: var(--accent-terracotta);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(38, 27, 22, 0.08);
 }
 
 /* Features Section */
@@ -1238,31 +1266,6 @@ button {
   vertical-align: middle;
 }
 
-@media (max-width: 768px) {
-  .hero-chips {
-    justify-content: center;
-  }
-
-  .hero-cta-group {
-    justify-content: center;
-  }
-
-  .booking-notice-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .booking-notice-info {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .time-badge-group {
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-  }
-}
 
 /* ==========================================================================
    SCROLL REVEAL FADE-IN ANIMATION (ULTRA LIGHTWEIGHT & SMOOTH)
