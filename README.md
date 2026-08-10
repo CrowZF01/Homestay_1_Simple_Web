@@ -169,6 +169,16 @@ try {
 
 ---
 
+## ⚡ Keep Supabase Alive Automation
+
+To prevent Supabase Free Tier projects from automatically pausing after 7 days of inactivity, a GitHub Actions workflow is configured at [.github/workflows/keep-alive.yml](file:///c:/Users/felix/OneDrive/Documents/GitHub/Homestay_1_Simple_Web/.github/workflows/keep-alive.yml).
+
+- **Schedule**: Triggers automatically every 3 days (`cron: '0 0 */3 * *'`).
+- **Manual Trigger**: Can be run manually from the GitHub Actions tab (`workflow_dispatch`).
+- **Action**: Sends a lightweight GET request (`/rest/v1/reviews?select=id&limit=1`) to keep the Supabase database active.
+
+---
+
 ## 📍 Location & Contact
 
 - **Property**: Acrolia Homestay Jogja

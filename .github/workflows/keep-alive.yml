@@ -1,0 +1,20 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    # Runs every 3 days at 00:00 UTC to prevent Supabase auto-pausing (7 days inactivity rule)
+    - cron: '0 0 */3 * *'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+jobs:
+  ping-supabase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST API
+        env:
+          SUPABASE_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          KEY="${SUPABASE_KEY:-sb_publishable__ek2Ri_yHuAdqgOxlX3E-w_LzBE8wX2}"
+          curl -s -X GET "https://lfuzqcznemwhjsvdpwml.supabase.co/rest/v1/reviews?select=id&limit=1" \
+            -H "apikey: $KEY" \
+            -H "Authorization: Bearer $KEY"
