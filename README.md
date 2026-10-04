@@ -3,7 +3,7 @@
 # 🏡 Acrolia Homestay — Web Application
 
   <p align="center">
-    <strong>Modern, High-Performance Landing Page & Booking Showcase for Acrolia Homestay Malioboro, Jogja</strong>
+    <strong>Modern, High-Performance Landing Page & Booking Showcase for Acrolia Homestay Malioboro, Jogjakarta</strong>
   </p>
 
   <p align="center">
